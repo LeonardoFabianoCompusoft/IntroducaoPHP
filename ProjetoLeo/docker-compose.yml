@@ -2,7 +2,7 @@ version: '3.8'
 services:
   nginx:
     image: nginx:alpine
-    container_name: nginx-novo
+    container_name: nginx
     ports:
       - "80:80"
     volumes:
@@ -15,7 +15,7 @@ services:
     restart: always
 
   php:
-    container_name: php-novo
+    container_name: php
     build: ./php/
     volumes:
       - ./php:/php
@@ -29,7 +29,7 @@ services:
 
   mysql:
     image: mysql:5.7.40
-    container_name: mysql-novo
+    container_name: mysql
     volumes:
       - ./mysql/container:/var/lib/mysql
       - ./mysql:/database
