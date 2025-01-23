@@ -1,14 +1,15 @@
 <?php
 
-class Postagem
-{
-    public static function selecionaTodos()
+    class Postagem
     {
-        try {
-            $con = new PDO('mysql:host=localhost;dbname=ProjPHP;', 'root', 'teste@123');
-            var_dump($con);
-        } catch (PDOException $e) {
-            echo 'Erro ao conectar com o banco de dados: ' . $e->getMessage();
+         public static function selecionaTodos()
+        {
+            $con = conexao::getconn();
+
+            $sql = "SELECT * FROM postagem ORDER BY id DESC";
+            $stmt = $con->prepare($sql);
+            $stmt->execute();
+            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
         }
     }
-}

@@ -2,6 +2,8 @@
 
 require_once 'app/Core/Core.php';
 
+require_once 'lib/DataBase/Connection.php';
+
 require_once 'app/Controller/HomeController.php';
 require_once 'app/Controller/ErroController.php';
 
